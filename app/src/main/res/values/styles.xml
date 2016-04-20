@@ -9,13 +9,15 @@
     </style>
 
     <style name="textStatusStyle">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
         <item name="android:gravity">center</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">14sp</item>
         <item name="android:padding">0dp</item>
         <item name="android:layout_margin">-10dp</item>
         <item name="android:textColor">#ccc</item>
+        <item name="android:background">@drawable/shape_circle</item>
+        <item name="backgroundTint">@color/statusBarNormal</item>
         <item name="android:textStyle">bold</item>
     </style>
 

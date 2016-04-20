@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginBottom="4dp"
         android:weightSum="4">
 
         <TextView
@@ -43,40 +44,40 @@
         android:orientation="horizontal"
         android:weightSum="4">
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/text1"
             style="@style/textStatusStyle"
-            android:text="①"
+            android:text="1"
             tools:ignore="HardcodedText"/>
 
         <View
             android:id="@+id/view1"
             style="@style/StatusBarConnectLine"/>
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/text2"
             style="@style/textStatusStyle"
-            android:text="②"
+            android:text="2"
             tools:ignore="HardcodedText"/>
 
         <View
             android:id="@+id/view2"
             style="@style/StatusBarConnectLine"/>
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/text3"
             style="@style/textStatusStyle"
-            android:text="③"
+            android:text="3"
             tools:ignore="HardcodedText"/>
 
         <View
             android:id="@+id/view3"
             style="@style/StatusBarConnectLine"/>
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/text4"
             style="@style/textStatusStyle"
-            android:text="④"
+            android:text="4"
             tools:ignore="HardcodedText"/>
 
     </LinearLayout>

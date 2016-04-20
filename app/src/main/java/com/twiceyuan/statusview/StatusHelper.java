@@ -1,6 +1,9 @@
 package com.twiceyuan.statusview;
 
+import android.content.res.ColorStateList;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewCompat;
+import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,10 +17,10 @@ public class StatusHelper {
 
     private LinearLayout mStatusBarContainer;
 
-    private TextView text1;
-    private TextView text2;
-    private TextView text3;
-    private TextView text4;
+    private AppCompatTextView text1;
+    private AppCompatTextView text2;
+    private AppCompatTextView text3;
+    private AppCompatTextView text4;
 
     private View view1;
     private View view2;
@@ -93,8 +96,9 @@ public class StatusHelper {
 
     private void activeView(View view) {
         if (view == null) return;
-        if (view instanceof TextView) {
+        if (view instanceof AppCompatTextView) {
             ((TextView) view).setTextColor(ContextCompat.getColor(view.getContext(), R.color.statusBarActive));
+            ViewCompat.setBackgroundTintList(view, ColorStateList.valueOf(ContextCompat.getColor(view.getContext(), R.color.statusBarActive)));
         } else {
             view.setBackgroundResource(R.color.statusBarActive);
         }
@@ -104,6 +108,7 @@ public class StatusHelper {
         if (view == null) return;
         if (view instanceof TextView) {
             ((TextView) view).setTextColor(ContextCompat.getColor(view.getContext(), R.color.statusBarNormal));
+            ViewCompat.setBackgroundTintList(view, ColorStateList.valueOf(ContextCompat.getColor(view.getContext(), R.color.statusBarNormal)));
         } else {
             view.setBackgroundResource(R.color.statusBarNormal);
         }
