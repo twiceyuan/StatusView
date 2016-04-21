@@ -12,8 +12,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final String[] activeTexts = {"已报名", "已确认", "已帮忙", "已完成"};
-        final String[] inactiveTexts = {"未报名", "未确认", "还未帮忙", "未完成"};
+        final String[] activeTexts = {"第一步", "第二步", "第三步", "第四步"};
+        final String[] inactiveTexts = {"第一步", "第二步", "第三步", "第四步"};
         final StatusView statusBar = (StatusView) findViewById(R.id.statusBar);
         assert statusBar != null;
         statusBar.setActiveTexts(activeTexts);
