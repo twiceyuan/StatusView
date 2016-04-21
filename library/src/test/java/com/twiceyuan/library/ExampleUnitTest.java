@@ -1,4 +1,4 @@
-package com.twiceyuan.statusview;
+package com.twiceyuan.library;
 
 import org.junit.Test;
 

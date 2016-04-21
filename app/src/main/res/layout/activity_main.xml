@@ -12,7 +12,10 @@
     android:orientation="vertical"
     tools:context="com.twiceyuan.statusview.MainActivity">
 
-    <include layout="@layout/include_status_bar"/>
+    <com.twiceyuan.library.StatusView
+        android:id="@+id/statusBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
     <Space
         android:layout_width="match_parent"
