@@ -1,6 +1,5 @@
 package com.twiceyuan.library.statusView;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
@@ -54,7 +53,7 @@ public class StatusView extends LinearLayout {
         init(context, attrs);
     }
 
-    @SuppressLint("SetTextI18n") private void init(Context context, AttributeSet attrs) {
+    private void init(Context context, AttributeSet attrs) {
 
         if (isInEditMode()) {
             TextView textView = new TextView(context);
@@ -71,8 +70,10 @@ public class StatusView extends LinearLayout {
 
         if (attrs != null) {
             TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.StatusView);
+
             mActiveColor = attributes.getColor(R.styleable.StatusView_activeColor, mActiveColor);
             mNormalColor = attributes.getColor(R.styleable.StatusView_normalColor, mNormalColor);
+
             attributes.recycle();
         }
 
