@@ -1,4 +1,7 @@
 # StatusView
+
+[![](https://jitpack.io/v/twiceyuan/StatusView.svg)](https://jitpack.io/#twiceyuan/StatusView)
+
 [WIP] 模仿闲鱼做的状态指示器, 有待进一步封装
 
 ## 效果图
