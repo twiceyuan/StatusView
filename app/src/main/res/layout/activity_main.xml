@@ -13,7 +13,7 @@
     android:orientation="vertical"
     tools:context="com.twiceyuan.statusview.MainActivity">
 
-    <com.twiceyuan.library.StatusView
+    <com.twiceyuan.library.statusView.StatusView
         android:id="@+id/statusBar"
         app:activeColor="@color/statusBarActive"
         app:normalColor="@color/statusBarNormal"

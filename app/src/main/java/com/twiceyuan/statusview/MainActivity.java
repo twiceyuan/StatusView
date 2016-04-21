@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.SeekBar;
 
-import com.twiceyuan.library.StatusView;
+import com.twiceyuan.library.statusView.StatusView;
 
 public class MainActivity extends AppCompatActivity {
 
