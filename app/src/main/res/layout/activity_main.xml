@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#666"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -14,6 +15,8 @@
 
     <com.twiceyuan.library.StatusView
         android:id="@+id/statusBar"
+        app:activeColor="@color/statusBarActive"
+        app:normalColor="@color/statusBarNormal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

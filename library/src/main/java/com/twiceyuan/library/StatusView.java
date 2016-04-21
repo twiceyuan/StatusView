@@ -3,6 +3,7 @@ package com.twiceyuan.library;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.AppCompatTextView;
@@ -26,20 +27,6 @@ public class StatusView extends LinearLayout {
 
     private LinearLayout mStatusBarContainer;
 
-    private AppCompatTextView text1;
-    private AppCompatTextView text2;
-    private AppCompatTextView text3;
-    private AppCompatTextView text4;
-
-    private View view1;
-    private View view2;
-    private View view3;
-
-    private TextView textLabel1;
-    private TextView textLabel2;
-    private TextView textLabel3;
-    private TextView textLabel4;
-
     private View     views[];
     private TextView labels[];
 
@@ -47,24 +34,28 @@ public class StatusView extends LinearLayout {
     private String inactiveTexts[] = {"测试数据", "测试数据", "测试数据", "测试数据"};
 
     private int textPosition[] = {0, 2, 4, 6};
-    private int mStatus = 0;
+    private int mStatus        = 0;
+
+    private int mActiveColor;
+    private int mNormalColor;
 
     public StatusView(Context context) {
         super(context);
-        init(context);
+        init(context, null);
     }
 
     public StatusView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init(context);
+        init(context, attrs);
     }
 
     public StatusView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context);
+        init(context, attrs);
     }
 
-    @SuppressLint("SetTextI18n") private void init(Context context) {
+    @SuppressLint("SetTextI18n") private void init(Context context, AttributeSet attrs) {
+
         if (isInEditMode()) {
             TextView textView = new TextView(context);
             textView.setText(getClass().getSimpleName());
@@ -75,17 +66,27 @@ public class StatusView extends LinearLayout {
             return;
         }
 
+        mActiveColor = ContextCompat.getColor(context, R.color.statusBarActive);
+        mNormalColor = ContextCompat.getColor(context, R.color.statusBarNormal);
+
+        if (attrs != null) {
+            TypedArray attributes = context.obtainStyledAttributes(attrs, R.styleable.StatusView);
+            mActiveColor = attributes.getColor(R.styleable.StatusView_activeColor, mActiveColor);
+            mNormalColor = attributes.getColor(R.styleable.StatusView_normalColor, mNormalColor);
+            attributes.recycle();
+        }
+
         mStatusBarContainer = (LinearLayout) LinearLayout.inflate(context, R.layout.view_status_bar, null);
         addView(mStatusBarContainer);
-        text1 = $(R.id.text1);
-        text2 = $(R.id.text2);
-        text3 = $(R.id.text3);
-        text4 = $(R.id.text4);
+        AppCompatTextView text1 = $(R.id.text1);
+        AppCompatTextView text2 = $(R.id.text2);
+        AppCompatTextView text3 = $(R.id.text3);
+        AppCompatTextView text4 = $(R.id.text4);
 
-        textLabel1 = $(R.id.tv_label1);
-        textLabel2 = $(R.id.tv_label2);
-        textLabel3 = $(R.id.tv_label3);
-        textLabel4 = $(R.id.tv_label4);
+        TextView textLabel1 = $(R.id.tv_label1);
+        TextView textLabel2 = $(R.id.tv_label2);
+        TextView textLabel3 = $(R.id.tv_label3);
+        TextView textLabel4 = $(R.id.tv_label4);
 
         View view1 = $(R.id.view1);
         View view2 = $(R.id.view2);
@@ -103,20 +104,20 @@ public class StatusView extends LinearLayout {
     private void activeView(View view) {
         if (view == null) return;
         if (view instanceof AppCompatTextView) {
-            ((TextView) view).setTextColor(ContextCompat.getColor(view.getContext(), R.color.statusBarActive));
-            ViewCompat.setBackgroundTintList(view, ColorStateList.valueOf(ContextCompat.getColor(view.getContext(), R.color.statusBarActive)));
+            ((TextView) view).setTextColor(mActiveColor);
+            ViewCompat.setBackgroundTintList(view, ColorStateList.valueOf(mActiveColor));
         } else {
-            view.setBackgroundResource(R.color.statusBarActive);
+            view.setBackgroundColor(mActiveColor);
         }
     }
 
     private void inactiveView(View view) {
         if (view == null) return;
         if (view instanceof TextView) {
-            ((TextView) view).setTextColor(ContextCompat.getColor(view.getContext(), R.color.statusBarNormal));
-            ViewCompat.setBackgroundTintList(view, ColorStateList.valueOf(ContextCompat.getColor(view.getContext(), R.color.statusBarNormal)));
+            ((TextView) view).setTextColor(mNormalColor);
+            ViewCompat.setBackgroundTintList(view, ColorStateList.valueOf(mNormalColor));
         } else {
-            view.setBackgroundResource(R.color.statusBarNormal);
+            view.setBackgroundColor(mNormalColor);
         }
     }
 
@@ -136,7 +137,7 @@ public class StatusView extends LinearLayout {
                 inactiveView(views[i]);
             }
         }
-        for (int i = 0;i < labels.length;i++) {
+        for (int i = 0; i < labels.length; i++) {
             if (i < status) {
                 activeView(labels[i]);
                 labels[i].setText(activeTexts[i]);
