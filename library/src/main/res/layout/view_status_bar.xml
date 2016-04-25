@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_marginBottom="4dp"
-        android:weightSum="4">
+        android:weightSum="5">
 
         <TextView
             android:id="@+id/tv_label1"
@@ -33,6 +33,11 @@
             style="@style/textStatusLabel"
             tools:text="已完成"/>
 
+        <TextView
+            android:id="@+id/tv_label5"
+            style="@style/textStatusLabel"
+            tools:text="已完成"/>
+
     </LinearLayout>
 
     <LinearLayout
@@ -40,7 +45,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:weightSum="4">
+        android:weightSum="5">
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/text1"
@@ -76,6 +81,16 @@
             android:id="@+id/text4"
             style="@style/textStatusStyle"
             android:text="4"
+            tools:ignore="HardcodedText"/>
+
+        <View
+            android:id="@+id/view4"
+            style="@style/StatusBarConnectLine"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/text5"
+            style="@style/textStatusStyle"
+            android:text="5"
             tools:ignore="HardcodedText"/>
 
     </LinearLayout>

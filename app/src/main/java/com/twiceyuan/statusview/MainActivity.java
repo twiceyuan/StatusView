@@ -12,15 +12,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        final String[] activeTexts = {"第一步", "第二步", "第三步", "第四步"};
-        final String[] inactiveTexts = {"第一步", "第二步", "第三步", "第四步"};
+        final String[] activeTexts = {"第一步", "第二步", "第三步", "第四步", "第五步"};
+        final String[] inactiveTexts = {"第一步", "第二步", "第三步", "第四步", "第五步"};
         final StatusView statusBar = (StatusView) findViewById(R.id.statusBar);
         assert statusBar != null;
         statusBar.setActiveTexts(activeTexts);
         statusBar.setInactiveTexts(inactiveTexts);
         SeekBar seekBar = (SeekBar) findViewById(R.id.seekBar);
         assert seekBar != null;
-        seekBar.setMax(4);
+        seekBar.setMax(5);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 statusBar.refreshStatus(progress);
